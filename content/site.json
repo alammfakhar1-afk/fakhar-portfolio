@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "pageTitle": "Fakhar Alam | Talking-Head Video Editor"
+  },
+  "brand": {
+    "name": "Fakhar Alam",
+    "title": "Talking-Head Video Editor for Coaches & Personal Brands",
+    "accent": "#EF8665"
+  },
+  "photo": "/images/fakhar.jpg",
+  "hero": {
+    "hello": "Hi, I'm Fakhar Alam",
+    "headline": "Talking-head videos people watch",
+    "highlight": "till the end.",
+    "badge": "Video editor",
+    "primaryCta": "See my work",
+    "secondaryCta": "Contact me",
+    "captions": [
+      "Hook them fast",
+      "Captions that pop",
+      "B-roll on the beat",
+      "Stories that land",
+      "Watched till the end"
+    ]
+  },
+  "work": {
+    "heading": "Selected work",
+    "intro": "Tap any video to watch it. Use the filters to see one type of work.",
+    "linkLabel": "More on Google Drive",
+    "categories": [
+      {
+        "title": "Talking-head videos",
+        "chip": "Talking-head",
+        "link": "",
+        "desc": "Reels and shorts for coaches and personal brands, with kinetic captions, b-roll and motion graphics timed to every word.",
+        "videos": [
+          {
+            "title": "Food review reel",
+            "client": "",
+            "desc": "A talking-head food review with quick cuts, product close-ups and reactions timed to every line, so the energy never drops.",
+            "drive": "",
+            "poster": "/images/posters/food-review-reel.jpg",
+            "wide": false,
+            "duration": "1:40"
+          }
+        ]
+      },
+      {
+        "title": "AI videos",
+        "chip": "AI videos",
+        "link": "",
+        "desc": "Videos built with AI visuals, voice and animation, edited into stories that still feel human.",
+        "videos": [
+          {
+            "title": "AI tools that feel illegal",
+            "client": "",
+            "desc": "A countdown of AI tools like Perplexity and Google AI Studio, mixing real screen recordings with bold captions on a soft green set.",
+            "drive": "",
+            "poster": "/images/posters/ai-tools-that-feel-illegal.jpg",
+            "wide": false,
+            "duration": "0:30"
+          },
+          {
+            "title": "I just found an AI",
+            "client": "",
+            "desc": "A kinetic typography reel about an AI art tool, with animated headlines, an illustrated character and a Google search mockup.",
+            "drive": "",
+            "poster": "/images/posters/i-just-found-an-ai.jpg",
+            "wide": false,
+            "duration": "0:27"
+          },
+          {
+            "title": "What one AI can build",
+            "client": "",
+            "desc": "A fast motion graphics reel on making slides, websites, apps and visuals with a single AI tool.",
+            "drive": "",
+            "poster": "/images/posters/what-one-ai-can-build.jpg",
+            "wide": false,
+            "duration": "0:26"
+          },
+          {
+            "title": "Shortcut Cubes",
+            "client": "",
+            "desc": "A 3D animated short made with AI visuals, following one character through a warm, cinematic night-time story.",
+            "drive": "",
+            "poster": "/images/posters/shortcut-cubes.jpg",
+            "wide": true,
+            "duration": "0:37"
+          }
+        ]
+      },
+      {
+        "title": "VOX style videos",
+        "chip": "VOX style",
+        "link": "",
+        "desc": "Explainer edits with bold type, illustrations, archival style visuals and data call-outs.",
+        "videos": [
+          {
+            "title": "How to think logically",
+            "client": "",
+            "desc": "A kinetic typography explainer on logical thinking and learning Python, built on clean black and white cards and a punchy green accent.",
+            "drive": "",
+            "poster": "/images/posters/how-to-think-logically.jpg",
+            "wide": false,
+            "duration": "0:48"
+          },
+          {
+            "title": "Craft your purpose",
+            "client": "",
+            "desc": "A storytelling edit with serif headlines, silhouette illustrations and archival style imagery that builds to one clear message.",
+            "drive": "",
+            "poster": "/images/posters/craft-your-purpose.jpg",
+            "wide": false,
+            "duration": "0:48"
+          }
+        ]
+      },
+      {
+        "title": "Promo videos",
+        "chip": "Promo",
+        "link": "",
+        "desc": "Launch and product reels for restaurants and brands, made to stop the scroll and bring people in.",
+        "videos": [
+          {
+            "title": "Shawarma Square grand opening",
+            "client": "Shawarma Square",
+            "desc": "The launch reel for Shawarma Square's opening in Hicksville, Long Island, with sizzling food close-ups, bold red title cards and a clean logo reveal.",
+            "drive": "",
+            "poster": "/images/posters/shawarma-square-grand-opening.jpg",
+            "wide": false,
+            "duration": "0:45"
+          },
+          {
+            "title": "Humty Dumty waffle reel",
+            "client": "Humty Dumty",
+            "desc": "A bright product reel for Humty Dumty, with waffles spinning in on a sunny yellow set, playful POV text and the logo to close.",
+            "drive": "",
+            "poster": "/images/posters/humty-dumty-waffle-reel.jpg",
+            "wide": false,
+            "duration": "0:17"
+          }
+        ]
+      },
+      {
+        "title": "Posts",
+        "chip": "Posts",
+        "link": "",
+        "desc": "Static and carousel posts designed in the same look as the videos, so the whole feed feels like one brand.",
+        "videos": []
+      }
+    ],
+    "allLabel": "All",
+    "allDesc": ""
+  },
+  "stats": {
+    "show": false,
+    "items": [
+      {
+        "value": 100,
+        "suffix": "+",
+        "label": "Videos edited"
+      },
+      {
+        "value": 3,
+        "suffix": "+",
+        "label": "Years of editing"
+      },
+      {
+        "value": 30,
+        "suffix": "+",
+        "label": "Clients"
+      }
+    ]
+  },
+  "about": {
+    "heading": "About me",
+    "text": "I'm Fakhar Alam, a video editor who helps coaches and personal brands turn simple talking-head footage into content people actually watch till the end. I build every edit around the story, with kinetic captions, clean motion graphics, b-roll and pacing that keeps viewers hooked. From talking-head reels and VOX style explainers to AI videos and social posts, my goal is simple: make your message clear, sharp and impossible to scroll past.",
+    "highlight": "make your message clear, sharp and impossible to scroll past.",
+    "showPhoto": true,
+    "toolsHeading": "Tools I use",
+    "tools": [
+      "After Effects",
+      "Premiere Pro",
+      "CapCut"
+    ],
+    "photoTag": "Fakhar Alam, video editor"
+  },
+  "contact": {
+    "heading": "Let's work together",
+    "navLabel": "Contact",
+    "text": "Tell me about your content and the kind of videos you need. Pick whatever is easiest for you.",
+    "items": [
+      {
+        "type": "email",
+        "label": "Email",
+        "value": "alammfakhar1@gmail.com",
+        "url": ""
+      },
+      {
+        "type": "whatsapp",
+        "label": "Phone / WhatsApp",
+        "value": "+92 312 867 3108",
+        "url": ""
+      },
+      {
+        "type": "instagram",
+        "label": "Instagram",
+        "value": "@fakhar.alam1",
+        "url": "https://www.instagram.com/fakhar.alam1/"
+      },
+      {
+        "type": "linkedin",
+        "label": "LinkedIn",
+        "value": "Fakhar Alam",
+        "url": "https://www.linkedin.com/in/fakhar-alam1/"
+      }
+    ]
+  },
+  "footer": "© 2026 Fakhar Alam",
+  "aboutPhoto": ""
+}

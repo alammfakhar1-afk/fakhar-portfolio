@@ -1,0 +1,128 @@
+# Change the next line to your GitHub username and repository name.
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/fakhar-portfolio
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: site
+    label: Website
+    editor:
+      preview: false
+    files:
+      - name: content
+        label: Website content
+        file: content/site.json
+        format: json
+        fields:
+          - label: General
+            name: brand
+            widget: object
+            fields:
+              - { label: Your name, name: name, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Accent color, name: accent, widget: color, default: "#EF8665" }
+          - { label: Your photo, name: photo, widget: image }
+          - { label: About photo (optional, uses your main photo if empty), name: aboutPhoto, widget: image, required: false }
+          - label: Page settings
+            name: meta
+            widget: object
+            fields:
+              - { label: Browser tab title, name: pageTitle, widget: string }
+          - { label: Footer text, name: footer, widget: string }
+
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Small greeting, name: hello, widget: string }
+              - { label: Headline, name: headline, widget: string }
+              - { label: Highlighted ending, name: highlight, widget: string }
+              - { label: Badge on photo, name: badge, widget: string }
+              - { label: Main button, name: primaryCta, widget: string }
+              - { label: Second button, name: secondaryCta, widget: string }
+              - label: Captions on your photo
+                name: captions
+                widget: list
+                field: { label: Caption, name: caption, widget: string }
+
+          - label: Work
+            name: work
+            widget: object
+            fields:
+              - { label: Section heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text }
+              - { label: All button, name: allLabel, widget: string }
+              - { label: Text under All, name: allDesc, widget: text, required: false }
+              - { label: Drive button text, name: linkLabel, widget: string }
+              - label: Categories
+                name: categories
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: Category name, name: title, widget: string }
+                  - { label: Chip label, name: chip, widget: string }
+                  - { label: Description, name: desc, widget: text, required: false }
+                  - { label: Google Drive folder link (optional), name: link, widget: string, required: false }
+                  - label: Videos
+                    name: videos
+                    widget: list
+                    required: false
+                    summary: "{{fields.title}}"
+                    fields:
+                      - { label: Title, name: title, widget: string }
+                      - { label: Client (optional), name: client, widget: string, required: false }
+                      - { label: Description, name: desc, widget: text, required: false }
+                      - { label: Google Drive video link, name: drive, widget: string, required: false, hint: "Share the video as Anyone with the link can view, then paste the link here. YouTube and Vimeo links also work." }
+                      - { label: Cover image, name: poster, widget: image, required: false }
+                      - { label: Horizontal video (16:9), name: wide, widget: boolean, default: false, required: false }
+                      - { label: Duration (like 0:45), name: duration, widget: string, required: false }
+
+          - label: Numbers
+            name: stats
+            widget: object
+            fields:
+              - { label: Show numbers section, name: show, widget: boolean, default: false }
+              - label: Numbers
+                name: items
+                widget: list
+                summary: "{{fields.value}}{{fields.suffix}} {{fields.label}}"
+                fields:
+                  - { label: Number, name: value, widget: number, value_type: int }
+                  - { label: After number, name: suffix, widget: string, required: false }
+                  - { label: Label, name: label, widget: string }
+
+          - label: About
+            name: about
+            widget: object
+            fields:
+              - { label: Section heading, name: heading, widget: string }
+              - { label: About text, name: text, widget: text }
+              - { label: Highlighted sentence (copy part of the text exactly), name: highlight, widget: string, required: false }
+              - { label: Show photo next to About, name: showPhoto, widget: boolean, default: true }
+              - { label: Tag on About photo, name: photoTag, widget: string, required: false }
+              - { label: Tools heading, name: toolsHeading, widget: string }
+              - label: Tools
+                name: tools
+                widget: list
+                field: { label: Tool, name: tool, widget: string }
+
+          - label: Contact
+            name: contact
+            widget: object
+            fields:
+              - { label: Section heading, name: heading, widget: string }
+              - { label: Text, name: text, widget: text, required: false }
+              - { label: Nav button, name: navLabel, widget: string }
+              - label: Contact cards
+                name: items
+                widget: list
+                summary: "{{fields.label}}: {{fields.value}}"
+                fields:
+                  - { label: Icon, name: type, widget: select, options: [email, phone, whatsapp, instagram, linkedin, youtube, link] }
+                  - { label: Label, name: label, widget: string }
+                  - { label: Shown text, name: value, widget: string }
+                  - { label: Link (leave empty for email and phone), name: url, widget: string, required: false }
