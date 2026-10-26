@@ -1,7 +1,7 @@
 # Change the next line to your GitHub username and repository name.
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/fakhar-portfolio
+  repo: alammfakhar1-afk/fakhar-portfolio
   branch: main
 
 media_folder: "images/uploads"
