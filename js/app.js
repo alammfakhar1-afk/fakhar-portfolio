@@ -45,7 +45,7 @@ function markIn(text,phrase){var t=esc(text),p=esc(phrase||"");if(!p||t.indexOf(
 function linkFor(c){
  var v=String(c.value||"").trim(),u=safeUrl(c.url);
  if(u)return u;
- if(c.type==="email"&&v)return "mailto:"+v;
+ if(c.type==="email"&&v)return coarse?"mailto:"+v:"https://mail.google.com/mail/?view=cm&fs=1&to="+encodeURIComponent(v); // desktop: Gmail compose (mailto does nothing without a mail app)
  if((c.type==="phone"||c.type==="whatsapp")&&v)return "https://wa.me/"+v.replace(/\D/g,"");
  if(c.type==="instagram"&&v)return "https://instagram.com/"+v.replace(/^@/,"");
  return "";
@@ -155,7 +155,7 @@ function render(){
  // contact
  html+='<section class="sec contact" id="contact"><div class="wrap"><div><h2 class="h2 rv">'+esc(c.heading)+'</h2>'+(c.text?'<p class="lead rv" style="margin-top:24px">'+esc(c.text)+'</p>':'')+'</div>'+
   '<div class="ccards">'+(c.items||[]).map(function(x,i){var u=linkFor(x);var ext=/^https?:/i.test(u);
-   return '<a class="ccard rv" style="transition-delay:'+(i*0.06).toFixed(2)+'s" href="'+esc(u||"#")+'"'+(ext?' target="_blank" rel="noopener"':'')+'><span class="ci">'+(I[x.type]||I.link)+'</span><span class="ct"><small>'+esc(x.label)+'</small><strong>'+esc(x.value)+'</strong></span><span class="ca">'+I.arrow+'</span></a>'}).join("")+
+   return '<a class="ccard rv"'+(x.type==="email"&&x.value?' data-copy="'+esc(String(x.value).trim())+'"':'')+' style="transition-delay:'+(i*0.06).toFixed(2)+'s" href="'+esc(u||"#")+'"'+(ext?' target="_blank" rel="noopener"':'')+'><span class="ci">'+(I[x.type]||I.link)+'</span><span class="ct"><small>'+esc(x.label)+'</small><strong>'+esc(x.value)+'</strong></span><span class="ca">'+I.arrow+'</span></a>'}).join("")+
   '</div></div></section></main>';
 
  // footer (year auto-updates)
@@ -268,6 +268,10 @@ root.addEventListener("click",function(e){
  var ch=e.target.closest("[data-chip]");if(ch){applyFilter(ch.getAttribute("data-chip"));go("work");return}
  var vc=e.target.closest(".vcard");if(vc)openLB(Number(vc.getAttribute("data-vi")));
 });
+
+// email card: also copy the address so it always "works", even with no mail app
+root.addEventListener("click",function(e){var a=e.target.closest("[data-copy]");if(!a)return;var v=a.getAttribute("data-copy");
+ try{if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(v).then(function(){toast("Email copied: "+v)},function(){})}catch(err){}});
 
 /* ---------- lightbox ---------- */
 var lb=document.createElement("div");lb.className="lb";lb.setAttribute("role","dialog");lb.setAttribute("aria-modal","true");lb.setAttribute("aria-labelledby","lbTitle");lb.setAttribute("aria-hidden","true");
