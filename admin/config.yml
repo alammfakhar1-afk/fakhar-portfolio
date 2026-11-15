@@ -76,7 +76,7 @@ collections:
                       - { label: Title, name: title, widget: string }
                       - { label: Client (optional), name: client, widget: string, required: false }
                       - { label: Description, name: desc, widget: text, required: false }
-                      - { label: Video link, name: videoUrl, widget: string, required: false, hint: "Paste Google Drive link (file must be shared: Anyone with the link). Any Drive link format works (/file/d/ID/view, open?id=ID, uc?id=ID). YouTube, Vimeo and direct .mp4 links also work. Leave empty to show 'Video coming soon'." }
+                      - { label: Video link, name: videoUrl, widget: string, required: false, hint: "Paste Google Drive link (file must be shared: Anyone with the link). Any Drive link format works (/file/d/ID/view, open?id=ID, uc?id=ID). YouTube, Vimeo and .mp4 links also work. Videos hosted with the site (like /videos/name.mp4) play in the clean built-in player. Leave empty to show 'Video coming soon'." }
                       - { label: Cover image, name: poster, widget: image, required: false, hint: "Upload a 9:16 cover image here, OR paste a link in the next field." }
                       - { label: Cover image link (Google Drive), name: posterUrl, widget: string, required: false, hint: "Optional. Paste a Google Drive image link (file must be shared: Anyone with the link) or any direct image URL. If filled, this is used instead of the uploaded cover image." }
                       - { label: Horizontal video (16:9), name: wide, widget: boolean, default: false, required: false, hint: "Turn on for landscape videos. Off = vertical 9:16 reel." }
