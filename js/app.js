@@ -275,7 +275,7 @@ root.addEventListener("click",function(e){var a=e.target.closest("[data-copy]");
 
 /* ---------- lightbox ---------- */
 var lb=document.createElement("div");lb.className="lb";lb.setAttribute("role","dialog");lb.setAttribute("aria-modal","true");lb.setAttribute("aria-labelledby","lbTitle");lb.setAttribute("aria-hidden","true");
-lb.innerHTML='<div class="lb-back" data-lbclose></div><div class="lb-box" data-lenis-prevent><button type="button" class="lb-close" data-lbclose aria-label="Close video"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button><div class="lb-video"><div class="lb-frame"></div></div><div class="lb-info"><span class="tagchip" id="lbTag"></span><h3 id="lbTitle"></h3><small id="lbClient" style="color:var(--muted);font-weight:600"></small><p id="lbDesc"></p><div class="lb-nav"><button type="button" data-lbstep="-1" aria-label="Previous video"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" data-lbstep="1" aria-label="Next video"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button></div></div></div>';
+lb.innerHTML='<div class="lb-back" data-lbclose></div><div class="lb-box" data-lenis-prevent><button type="button" class="lb-close" data-lbclose aria-label="Close video"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button><div class="lb-video"><div class="lb-frame"></div></div><div class="lb-info"><span class="tagchip" id="lbTag"></span><h3 id="lbTitle"></h3><small id="lbClient" style="color:var(--muted);font-weight:600"></small><p id="lbDesc"></p><a id="lbOpen" class="lb-open" target="_blank" rel="noopener" hidden>Video not playing? Open it in Google Drive</a><div class="lb-nav"><button type="button" data-lbstep="-1" aria-label="Previous video"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" data-lbstep="1" aria-label="Next video"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button></div></div></div>';
 document.body.appendChild(lb);
 var lbFrame=lb.querySelector(".lb-frame"),lbList=[],lbPos=0,lbLast=null;
 
@@ -288,6 +288,7 @@ function showLB(){
  document.getElementById("lbClient").textContent=v.client||"";document.getElementById("lbDesc").textContent=v.desc||"";
  clearFrame();
  var em=embedFor(videoUrlOf(v)),poster="";
+ var op=document.getElementById("lbOpen");if(op){var dv=em&&/drive\.google\.com\/file\/d\/[\w-]+\/preview/.test(em.src);op.hidden=!dv;if(dv)op.href=em.src.replace(/\/preview$/,"/view")}
  if(v.poster){var m=IMG[v.poster];poster='<img class="lb-poster" src="'+esc(m?(v.wide&&m.wide?m.wide:m.webp):v.poster)+'" alt="" decoding="async">'}
  if(!em){lbFrame.innerHTML='<div class="lb-soon">'+poster+'<span>Video coming soon</span></div>';}
  else{
