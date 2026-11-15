@@ -73,7 +73,7 @@ function embedFor(u){
  if(y)return {type:"iframe",src:"https://www.youtube-nocookie.com/embed/"+y[1]+"?autoplay=1&rel=0&playsinline=1"};
  var vm=u.match(/vimeo\.com\/(?:video\/)?(\d+)/);
  if(vm)return {type:"iframe",src:"https://player.vimeo.com/video/"+vm[1]+"?autoplay=1"};
- if(/\.(mp4|webm|mov|m4v)(\?.*)?$/i.test(u)&&/^https?:/i.test(u))return {type:"video",src:u};
+ if(/\.(mp4|webm|mov|m4v)(\?.*)?$/i.test(u)&&/^(https?:\/\/|\/)/i.test(u))return {type:"video",src:u}; // direct file: plays in the site's own minimal player
  if(/^https?:\/\//i.test(u))return {type:"iframe",src:u}; // already an embed URL
  return null;
 }
@@ -273,6 +273,45 @@ root.addEventListener("click",function(e){
 root.addEventListener("click",function(e){var a=e.target.closest("[data-copy]");if(!a)return;var v=a.getAttribute("data-copy");
  try{if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(v).then(function(){toast("Email copied: "+v)},function(){})}catch(err){}});
 
+/* ---------- minimal video player (for .mp4 files hosted with the site) ---------- */
+var VP={play:'<svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>',
+ pause:'<svg viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg>',
+ vol:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18V6L7.5 9.5z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>',
+ mute:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18V6L7.5 9.5z" fill="currentColor"/><path d="m16 9.5 5 5M21 9.5l-5 5"/></svg>',
+ full:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9V5h4M19 9V5h-4M5 15v4h4M19 15v4h-4"/></svg>'};
+function buildPlayer(v){
+ var box=v.parentNode;if(!box)return;
+ var ui=document.createElement("div");ui.className="vp show";
+ ui.innerHTML='<button type="button" class="vp-big" aria-label="Play">'+VP.play+'</button>'+
+  '<div class="vp-bar"><div class="vp-track" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><i></i></div>'+
+  '<span class="vp-time">0:00</span><button type="button" class="vp-btn" data-vp="mute" aria-label="Mute">'+VP.vol+'</button><button type="button" class="vp-btn" data-vp="full" aria-label="Fullscreen">'+VP.full+'</button></div>';
+ box.appendChild(ui);
+ var big=ui.querySelector(".vp-big"),track=ui.querySelector(".vp-track"),fill=track.firstChild,time=ui.querySelector(".vp-time"),muteB=ui.querySelector('[data-vp="mute"]'),hideT=null,drag=false;
+ function fmt(s){s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
+ function wake(){ui.classList.add("show");clearTimeout(hideT);if(!v.paused)hideT=setTimeout(function(){if(!drag)ui.classList.remove("show")},2200)}
+ function state(){var p=v.paused;ui.classList.toggle("paused",p);big.innerHTML=p?VP.play:VP.pause;big.setAttribute("aria-label",p?"Play":"Pause");wake()}
+ function toggle(){if(v.paused){var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}else v.pause()}
+ function seek(x){var r=track.getBoundingClientRect(),f=Math.min(1,Math.max(0,(x-r.left)/r.width));if(v.duration)v.currentTime=f*v.duration;fill.style.transform="scaleX("+f+")"}
+ v.addEventListener("play",state);v.addEventListener("pause",state);
+ v.addEventListener("ended",function(){v.currentTime=0;state()});
+ v.addEventListener("timeupdate",function(){if(!v.duration)return;var f=v.currentTime/v.duration;if(!drag)fill.style.transform="scaleX("+f+")";time.textContent=fmt(v.currentTime)+" / "+fmt(v.duration);track.setAttribute("aria-valuenow",Math.round(f*100))});
+ ui.addEventListener("click",function(e){
+  var b=e.target.closest("[data-vp]");
+  if(b){var a=b.getAttribute("data-vp");
+   if(a==="mute"){v.muted=!v.muted;muteB.innerHTML=v.muted?VP.mute:VP.vol;muteB.setAttribute("aria-label",v.muted?"Unmute":"Mute")}
+   else if(a==="full"){if(document.fullscreenElement)document.exitFullscreen();else if(box.requestFullscreen)box.requestFullscreen().catch(function(){});else if(v.webkitEnterFullscreen)v.webkitEnterFullscreen()}
+   wake();return}
+  if(e.target.closest(".vp-bar"))return;
+  toggle()});
+ track.addEventListener("pointerdown",function(e){drag=true;try{track.setPointerCapture(e.pointerId)}catch(x){}seek(e.clientX);wake()});
+ track.addEventListener("pointermove",function(e){if(drag)seek(e.clientX)});
+ track.addEventListener("pointerup",function(){drag=false;wake()});track.addEventListener("pointercancel",function(){drag=false});
+ track.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowLeft"){e.preventDefault();e.stopPropagation();v.currentTime=Math.max(0,Math.min(v.duration||0,v.currentTime+(e.key==="ArrowRight"?5:-5)));wake()}});
+ ui.querySelector(".vp-bar").addEventListener("touchstart",function(e){e.stopPropagation()},{passive:true});
+ ui.addEventListener("pointermove",wake);
+ state();var pr=v.play();if(pr&&pr.catch)pr.catch(function(){state()});
+}
+
 /* ---------- lightbox ---------- */
 var lb=document.createElement("div");lb.className="lb";lb.setAttribute("role","dialog");lb.setAttribute("aria-modal","true");lb.setAttribute("aria-labelledby","lbTitle");lb.setAttribute("aria-hidden","true");
 lb.innerHTML='<div class="lb-back" data-lbclose></div><div class="lb-box" data-lenis-prevent><button type="button" class="lb-close" data-lbclose aria-label="Close video"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button><div class="lb-video"><div class="lb-frame"></div></div><div class="lb-info"><span class="tagchip" id="lbTag"></span><h3 id="lbTitle"></h3><small id="lbClient" style="color:var(--muted);font-weight:600"></small><p id="lbDesc"></p><a id="lbOpen" class="lb-open" target="_blank" rel="noopener" hidden>Video not playing? Open it in Google Drive</a><div class="lb-nav"><button type="button" data-lbstep="-1" aria-label="Previous video"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" data-lbstep="1" aria-label="Next video"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button></div></div></div>';
@@ -294,7 +333,7 @@ function showLB(){
  else{
   lbFrame.innerHTML=poster;lbFrame.classList.add("loading");
   var el;
-  if(em.type==="video"){el=document.createElement("video");el.src=em.src;el.controls=true;el.autoplay=true;el.playsInline=true;el.setAttribute("playsinline","");el.addEventListener("loadeddata",done,{once:true});el.addEventListener("error",done,{once:true})}
+  if(em.type==="video"){el=document.createElement("video");el.src=em.src;el.preload="auto";el.playsInline=true;el.setAttribute("playsinline","");el.setAttribute("webkit-playsinline","");el.addEventListener("loadeddata",done,{once:true});el.addEventListener("error",done,{once:true});setTimeout(function(){buildPlayer(el)},0)}
   else{el=document.createElement("iframe");el.src=em.src;el.allow="autoplay; fullscreen; picture-in-picture; encrypted-media";el.setAttribute("allowfullscreen","");el.setAttribute("referrerpolicy","strict-origin-when-cross-origin");el.title=v.title||"Video";el.addEventListener("load",done,{once:true})}
   lbFrame.appendChild(el);
   var tm=setTimeout(done,8000);
