@@ -4,16 +4,15 @@
 
 /* Pre-exported images (made from the originals in /images). Anything not listed falls back to the plain file. */
 var IMG={
- "/images/fakhar.jpg":{w:800,h:1000,srcset:"/images/fakhar-600.webp 600w, /images/fakhar-800.webp 800w"},
- "/images/posters/ai-tools-that-feel-illegal.jpg":{webp:"/images/posters/ai-tools-that-feel-illegal.webp",w:406,h:720},
- "/images/posters/craft-your-purpose.jpg":{webp:"/images/posters/craft-your-purpose.webp",w:406,h:720},
- "/images/posters/food-review-reel.jpg":{webp:"/images/posters/food-review-reel.webp",w:406,h:720},
- "/images/posters/how-to-think-logically.jpg":{webp:"/images/posters/how-to-think-logically.webp",w:406,h:720},
- "/images/posters/humty-dumty-waffle-reel.jpg":{webp:"/images/posters/humty-dumty-waffle-reel.webp",w:406,h:720},
- "/images/posters/i-just-found-an-ai.jpg":{webp:"/images/posters/i-just-found-an-ai.webp",w:406,h:720},
+ "/images/fakhar.jpg":{w:800,h:1000,srcset:"/images/fakhar-600.webp 600w, /images/fakhar-800.webp 800w"},  
+ "/images/posters/food-review-reel.jpg":{webp:"/images/posters/food-review-reel.webp",w:406,h:720}, 
+ "/images/posters/humty-dumty-waffle-reel.jpg":{webp:"/images/posters/humty-dumty-waffle-reel.webp",w:406,h:720}, 
  "/images/posters/shawarma-square-grand-opening.jpg":{webp:"/images/posters/shawarma-square-grand-opening.webp",w:406,h:720},
- "/images/posters/shortcut-cubes.jpg":{webp:"/images/posters/shortcut-cubes.webp",w:406,h:720,wide:"/images/posters/shortcut-cubes-wide.webp"},
- "/images/posters/what-one-ai-can-build.jpg":{webp:"/images/posters/what-one-ai-can-build.webp",w:406,h:720}
+ "/images/posters/i-should-have-said-no.jpg":{webp:"/images/posters/i-should-have-said-no.webp",w:406,h:720},
+ "/images/posters/titan-construction-promo.jpg":{webp:"/images/posters/titan-construction-promo.webp",w:406,h:720},
+ "/images/posters/pet-salon-reel.jpg":{webp:"/images/posters/pet-salon-reel.webp",w:406,h:720},
+ "/images/posters/income-talking-head-reel.jpg":{webp:"/images/posters/income-talking-head-reel.webp",w:406,h:720},
+ "/images/posters/shortcut-cubes.jpg":{webp:"/images/posters/shortcut-cubes.webp",w:406,h:720,wide:"/images/posters/shortcut-cubes-wide.webp"}, 
 };
 
 var data={};

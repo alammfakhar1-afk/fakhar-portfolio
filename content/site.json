@@ -42,6 +42,24 @@
             "poster": "/images/posters/food-review-reel.jpg",
             "wide": false,
             "videoUrl": "/videos/food-review-reel.mp4"
+          },
+          {
+            "title": "Titan Construction promo",
+            "client": "",
+            "desc": "A talking-head promo for Titan Construction with a branded end card.",
+            "duration": "0:36",
+            "poster": "/images/posters/titan-construction-promo.jpg",
+            "wide": false,
+            "videoUrl": "/videos/titan-construction-promo.mp4"
+          },
+          {
+            "title": "Income talking-head reel",
+            "client": "",
+            "desc": "A talking-head reel with clean captions and b-roll cutaways.",
+            "duration": "0:28",
+            "poster": "/images/posters/income-talking-head-reel.jpg",
+            "wide": false,
+            "videoUrl": "/videos/income-talking-head-reel.mp4"
           }
         ]
       },
@@ -51,33 +69,6 @@
         "link": "",
         "desc": "Videos built with AI visuals, voice and animation, edited into stories that still feel human.",
         "videos": [
-          {
-            "title": "AI tools that feel illegal",
-            "client": "",
-            "desc": "A countdown of AI tools like Perplexity and Google AI Studio, mixing real screen recordings with bold captions on a soft green set.",
-            "duration": "0:30",
-            "poster": "/images/posters/ai-tools-that-feel-illegal.jpg",
-            "wide": false,
-            "videoUrl": ""
-          },
-          {
-            "title": "I just found an AI",
-            "client": "",
-            "desc": "A kinetic typography reel about an AI art tool, with animated headlines, an illustrated character and a Google search mockup.",
-            "duration": "0:27",
-            "poster": "/images/posters/i-just-found-an-ai.jpg",
-            "wide": false,
-            "videoUrl": ""
-          },
-          {
-            "title": "What one AI can build",
-            "client": "",
-            "desc": "A fast motion graphics reel on making slides, websites, apps and visuals with a single AI tool.",
-            "duration": "0:26",
-            "poster": "/images/posters/what-one-ai-can-build.jpg",
-            "wide": false,
-            "videoUrl": ""
-          },
           {
             "title": "Shortcut Cubes",
             "client": "",
@@ -96,22 +87,13 @@
         "desc": "Explainer edits with bold type, illustrations, archival style visuals and data call-outs.",
         "videos": [
           {
-            "title": "How to think logically",
+            "title": "I should have said no",
             "client": "",
-            "desc": "A kinetic typography explainer on logical thinking and learning Python, built on clean black and white cards and a punchy green accent.",
-            "duration": "0:48",
-            "poster": "/images/posters/how-to-think-logically.jpg",
+            "desc": "A VOX-style explainer on saying no, with bold type and black-and-white visuals.",
+            "duration": "0:26",
+            "poster": "/images/posters/i-should-have-said-no.jpg",
             "wide": false,
-            "videoUrl": ""
-          },
-          {
-            "title": "Craft your purpose",
-            "client": "",
-            "desc": "A storytelling edit with serif headlines, silhouette illustrations and archival style imagery that builds to one clear message.",
-            "duration": "0:48",
-            "poster": "/images/posters/craft-your-purpose.jpg",
-            "wide": false,
-            "videoUrl": ""
+            "videoUrl": "/videos/i-should-have-said-no.mp4"
           }
         ]
       },
@@ -138,6 +120,15 @@
             "poster": "/images/posters/humty-dumty-waffle-reel.jpg",
             "wide": false,
             "videoUrl": "/videos/humty-dumty-waffle-reel.mp4"
+          },
+          {
+            "title": "Pet salon reel",
+            "client": "",
+            "desc": "A captioned promo reel for a pet grooming salon.",
+            "duration": "0:35",
+            "poster": "/images/posters/pet-salon-reel.jpg",
+            "wide": false,
+            "videoUrl": "/videos/pet-salon-reel.mp4"
           }
         ]
       },
