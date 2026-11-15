@@ -38,10 +38,10 @@
             "title": "Food review reel",
             "client": "",
             "desc": "A talking-head food review with quick cuts, product close-ups and reactions timed to every line, so the energy never drops.",
-            "drive": "",
+            "duration": "1:40",
             "poster": "/images/posters/food-review-reel.jpg",
             "wide": false,
-            "duration": "1:40"
+            "videoUrl": ""
           }
         ]
       },
@@ -55,37 +55,37 @@
             "title": "AI tools that feel illegal",
             "client": "",
             "desc": "A countdown of AI tools like Perplexity and Google AI Studio, mixing real screen recordings with bold captions on a soft green set.",
-            "drive": "",
+            "duration": "0:30",
             "poster": "/images/posters/ai-tools-that-feel-illegal.jpg",
             "wide": false,
-            "duration": "0:30"
+            "videoUrl": ""
           },
           {
             "title": "I just found an AI",
             "client": "",
             "desc": "A kinetic typography reel about an AI art tool, with animated headlines, an illustrated character and a Google search mockup.",
-            "drive": "",
+            "duration": "0:27",
             "poster": "/images/posters/i-just-found-an-ai.jpg",
             "wide": false,
-            "duration": "0:27"
+            "videoUrl": ""
           },
           {
             "title": "What one AI can build",
             "client": "",
             "desc": "A fast motion graphics reel on making slides, websites, apps and visuals with a single AI tool.",
-            "drive": "",
+            "duration": "0:26",
             "poster": "/images/posters/what-one-ai-can-build.jpg",
             "wide": false,
-            "duration": "0:26"
+            "videoUrl": ""
           },
           {
             "title": "Shortcut Cubes",
             "client": "",
             "desc": "A 3D animated short made with AI visuals, following one character through a warm, cinematic night-time story.",
-            "drive": "",
+            "duration": "0:37",
             "poster": "/images/posters/shortcut-cubes.jpg",
             "wide": true,
-            "duration": "0:37"
+            "videoUrl": ""
           }
         ]
       },
@@ -99,19 +99,19 @@
             "title": "How to think logically",
             "client": "",
             "desc": "A kinetic typography explainer on logical thinking and learning Python, built on clean black and white cards and a punchy green accent.",
-            "drive": "",
+            "duration": "0:48",
             "poster": "/images/posters/how-to-think-logically.jpg",
             "wide": false,
-            "duration": "0:48"
+            "videoUrl": ""
           },
           {
             "title": "Craft your purpose",
             "client": "",
             "desc": "A storytelling edit with serif headlines, silhouette illustrations and archival style imagery that builds to one clear message.",
-            "drive": "",
+            "duration": "0:48",
             "poster": "/images/posters/craft-your-purpose.jpg",
             "wide": false,
-            "duration": "0:48"
+            "videoUrl": ""
           }
         ]
       },
@@ -125,19 +125,19 @@
             "title": "Shawarma Square grand opening",
             "client": "Shawarma Square",
             "desc": "The launch reel for Shawarma Square's opening in Hicksville, Long Island, with sizzling food close-ups, bold red title cards and a clean logo reveal.",
-            "drive": "",
+            "duration": "0:45",
             "poster": "/images/posters/shawarma-square-grand-opening.jpg",
             "wide": false,
-            "duration": "0:45"
+            "videoUrl": ""
           },
           {
             "title": "Humty Dumty waffle reel",
             "client": "Humty Dumty",
             "desc": "A bright product reel for Humty Dumty, with waffles spinning in on a sunny yellow set, playful POV text and the logo to close.",
-            "drive": "",
+            "duration": "0:17",
             "poster": "/images/posters/humty-dumty-waffle-reel.jpg",
             "wide": false,
-            "duration": "0:17"
+            "videoUrl": ""
           }
         ]
       },
